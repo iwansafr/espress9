@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [FrontController::class, 'index']);
+
+Route::middleware(['auth'])->prefix('admin')->group(function(){
+  Route::get('/',function(){
+    return view('back.index');
+  });
 });
+
+
+Route::get('/login',function(){
+  return view('back.login');
+})->name('login');
