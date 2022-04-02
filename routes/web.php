@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\FrontController;
+use App\Http\Controllers\PublicController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,15 +14,15 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [FrontController::class, 'index']);
+Route::get('/', [PublicController::class, 'index']);
 
 Route::middleware(['auth'])->prefix('admin')->group(function(){
   Route::get('/',function(){
-    return view('back.index');
+    return view('admin.index');
   });
 });
 
 
 Route::get('/login',function(){
-  return view('back.login');
+  return view('admin.login');
 })->name('login');
