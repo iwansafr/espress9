@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PublicController::class, 'index']);
 
-Route::middleware(['auth'])->prefix('admin')->group(function(){
+Route::middleware(['auth'])->prefix('dashboard')->group(function(){
   Route::get('/',function(){
     return view('admin.index');
   });
