@@ -20,6 +20,7 @@ Route::middleware(['auth'])->prefix('dashboard')->group(function(){
   Route::get('/',function(){
     return view('admin.index');
   });
+  Route::view('/user/role','admin.user.role');
 });
 
 
