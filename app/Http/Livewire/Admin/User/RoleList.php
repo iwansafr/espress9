@@ -31,4 +31,8 @@ class RoleList extends Component
     {
         return Role::where('name','like','%'.$this->keyword.'%')->paginate($this->limit);
     }
+    public function deleteData($id)
+    {
+        Role::find($id)->delete();
+    }
 }
